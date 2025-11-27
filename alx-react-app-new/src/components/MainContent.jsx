@@ -14,7 +14,7 @@ function MainContent() {
       </h2>
 
       <p style={{ textAlign: 'center', marginTop: '10px' }}>
-        This app shows information about some of the most iconic cities around the world.
+       I love to visit New York, Paris, and Tokyo.
       </p>
     </main>
   );
