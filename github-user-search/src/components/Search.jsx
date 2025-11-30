@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { fetchUserData } from "../services/githubService";
 
 const Search = () => {
-  const [username, setUsername] = useState(""); // input value
-  const [user, setUser] = useState(null);       // fetched user
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -17,7 +17,7 @@ const Search = () => {
       const data = await fetchUserData(username);
       setUser(data);
     } catch {
-      setError("Looks like we can't find the user.");
+      setError("Looks like we cant find the user"); // exact string required
     } finally {
       setLoading(false);
     }
