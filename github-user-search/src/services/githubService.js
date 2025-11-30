@@ -1,12 +1,16 @@
 import axios from "axios";
 
-// Fetch GitHub user data by username
-export const fetchUserData = async (username) => {
+export const fetchUsersAdvanced = async (username, location, minRepos) => {
   try {
-    const response = await axios.get(`https://api.github.com/users/${username}`);
-    return response.data; // returns the user object
+    // Construct query string
+    let query = `${username}`;
+    if (location) query += `+location:${location}`;
+    if (minRepos) query += `+repos:>=${minRepos}`;
+
+    const response = await axios.get(`https://api.github.com/search/users?q=${query}`);
+    return response.data.items; // array of user objects
   } catch (error) {
-    console.error("Error fetching user:", error);
-    throw error; // throw to handle it in the component
+    console.error("Error fetching users:", error);
+    throw error;
   }
 };
