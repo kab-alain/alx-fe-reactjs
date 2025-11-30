@@ -5,6 +5,7 @@ function Navbar() {
     <nav
       style={{
         display: "flex",
+        justifyContent: "space-between", // <-- added this
         gap: "20px",
         padding: "15px",
         backgroundColor: "#222",
