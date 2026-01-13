@@ -15,6 +15,8 @@ function HomePage() {
       <h1 className="text-3xl font-bold text-center mb-8">
         Recipe Sharing Platform
       </h1>
+      import { Link } from "react-router-dom";
+
 
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {recipes.map((recipe) => (
