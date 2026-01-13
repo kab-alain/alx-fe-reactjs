@@ -1,12 +1,15 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
-// Props: children (the protected component), isAuthenticated (boolean)
-const ProtectedRoute = ({ children, isAuthenticated }) => {
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+
   if (!isAuthenticated) {
-    // Redirect to home page if not authenticated
+    // Redirect to home page if not logged in
     return <Navigate to="/" replace />;
   }
+
   return children;
 };
 
