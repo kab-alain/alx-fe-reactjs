@@ -15,6 +15,8 @@ const PostsComponent = () => {
     {
       staleTime: 1000 * 60 * 5, // 5 minutes cache
       cacheTime: 1000 * 60 * 10, // 10 minutes total cache
+      refetchOnWindowFocus: false, // do NOT refetch when window gains focus
+      keepPreviousData: true,       // keep previous data while fetching new
     }
   );
 
@@ -23,7 +25,6 @@ const PostsComponent = () => {
 
   return (
     <div className="max-w-2xl mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">Posts</h1>
       <button
         onClick={() => refetch()}
         className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
