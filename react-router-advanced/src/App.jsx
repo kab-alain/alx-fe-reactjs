@@ -1,13 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
-
-// Pages
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Profile from "./pages/Profile";
-import ProfileDetails from "./pages/ProfileDetails";
-import ProfileSettings from "./pages/ProfileSettings";
-import Post from "./pages/Post";
+import Home from "./components/Home";
+import About from "./components/About";
+import Profile from "./components/Profile";
+import Post from "./components/Post";
+import BlogPost from "./components/BlogPost";
 
 // Simulated authentication
 const isAuthenticated = false;
@@ -25,6 +22,7 @@ function App() {
         <Link to="/about">About</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/post/123">Dynamic Post</Link>
+        <Link to="/blog/42">Blog Post 42</Link>
       </nav>
 
       <Routes>
@@ -41,10 +39,11 @@ function App() {
           }
         />
 
-        {/* Dynamic Route */}
+        {/* Dynamic Routes */}
         <Route path="/post/:id" element={<Post />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
 
-        {/* Fallback route */}
+        {/* Fallback */}
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </Router>
